@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<title>Pokedex</title>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div>
+                <input class="form-control" type="text" placeholder="Search.." id="myInput" onkeyup="filter()"><br>
+                <select class="form-select" id="showPokemon">
+                    {% for name_object in pokemon_names %}
+                    <option class="pokelist {{name_object.name}}" id="{{name_object.name}} {{name_object.id}}"value={{name_object.name}}>{{name_object.name|title}}</option>
+                    {% endfor %}
+                </select>
+                <div class="col">
+                    <button class="col btn btn-secondary" id="addToPokedex">Add to Pokedex</a></button>
+                    <a href="http://127.0.0.1:8000/pokedex/loadInitialData" class="btn btn-secondary">Load Initial Data</a>
+                    
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+<table class="table table-bordered table-striped table-hover" style="opacity: 0.9;">
+    <tr class="table-info">
+    <th>Name</th>
+    <th>Image</th>
+    {% comment %} <th>HP</th>
+    <th>ATK</th>
+    <th>DEF</th>
+    <th>SP_ATK</th>
+    <th>SP_DEF</th>
+    <th>SPD</th> {% endcomment %}
+    </tr>
+{% for pokemon in object_list %}
+    <tr> 
+    <td><a href="{% url 'pokedex:pokemon_detail' pokemon.id %}" class="btn btn-link" data-bs-toggle="tooltip" title="View data?">{{pokemon.name|title }}</a></td>
+    <td><img src="{{pokemon.image}}"></td>
+    </tr>
+    {% comment %} <td>{{pokemon.hp}}</td>
+    <td>{{pokemon.attack}}</td>
+    <td>{{pokemon.defense}}</td>
+    <td>{{pokemon.special_attack}}</td>
+    <td>{{pokemon.attack}}</td>
+    <td>{{pokemon.speed}}</td> {% endcomment %}
+{% endfor %}
+</table>
+</div>
+</div>
+{% endblock content %}
+
+{% comment %} class Pokemon(models.Model):
+    name = models.CharField(max_length=25)
+    hp = models.SmallIntegerField()
+    attack = models.SmallIntegerField()
+    defense = models.SmallIntegerField()
+    special_attack = models.SmallIntegerField()
+    special_defense = models.SmallIntegerField()
+    speed = models.SmallIntegerField()
+    image = models.CharField(max_length=250)
+    type = models.ManyToManyField(Type)
+    
+    class Meta:
+        ordering = ['name']
+        
+    def __str__(self):
+    		return self.name {% endcomment %}

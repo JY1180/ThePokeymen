@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<title>{{object.name|title}}</title>
+<br>
+<a href="{% url 'pokedex:pokemon_list' %}" class="btn btn-primary">Go back to Pokemon list</a><br/><br/>
+<a href="{% url 'pokedex:pokemon_delete' object.id %}" class="btn btn-danger">Delete Pokemon</a><br/><br/>
+
+<table class="table table-bordered" style="opacity: 0.9;">
+    <tr class="table-info">
+    <th>Name</th>
+    <th>Image</th>
+    <th>Type</th>
+    <th>HP</th>
+    <th>ATK</th>
+    <th>DEF</th>
+    <th>SP_ATK</th>
+    <th>SP_DEF</th>
+    <th>SPD</th> 
+    </tr>
+    <tr>
+    <td>{{object.name|title}}</td>
+    <td><img src="{{object.image}}"></td>
+    <td>{% for type in object.type.all %}<a href="{% url 'type:type_detail' type.id %}">{{ type.name|title }}</a><br>{% endfor %}</td>
+    <td>{{object.hp}}</td>
+    <td>{{object.attack}}</td>
+    <td>{{object.defense}}</td>
+    <td>{{object.special_attack}}</td>
+    <td>{{object.attack}}</td>
+    <td>{{object.speed}}</td> 
+</table>
+</div>
+{% endblock content %}

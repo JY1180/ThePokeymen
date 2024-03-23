@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+   <!DOCTYPE html>
+   <html lang="en"></html>
+   <meta charset="UTF-8">
+   <title>Home</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="{% static 'main.css'%}">
+   <!-- Latest compiled and minified CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <div class="title container my-5 p-3 bg-primary rounded border" style="opacity: 0.9"><img src="{% static 'img/welcome.png' %}"></div><br><br>
+
+   <div class="explainer container bg-light rounded border" style="opacity: 0.9">
+      <h3>Home</h3>
+      <p>
+         The landing page for our website. Contains links to other
+         apps and a brief overview of them.
+      </p>
+   </div><br>
+   <div class="explainer container bg-light rounded border" style="opacity: 0.9"> 
+      <h3>Pokedex</h3>
+      <p>
+         The main page of our website. Here you can interact with the
+         database and create, edit, or view pokemon and their data. 
+         Click on a pokemon's name to learn more about them.
+      </p>
+   </div><br>
+   <div class="border explainer container bg-light rounded" style="opacity: 0.9"> 
+      <h3>Type</h3>
+      <p>
+         The type app lists all the Pokemon types, and each type has information about their
+         advantages and disadvantages. Within the type app, you can choose two Pokemon from the
+         database and press a button to have them battle. This will display the relevant type information
+         and damage effectiveness/multiplier within the matchup.
+      </p>
+   </div>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock content %}``
