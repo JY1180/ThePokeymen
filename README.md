@@ -1,10 +1,7 @@
 # ThePokemen
 
-## Roster
-- Logan Fu: Project manager, Python/Django views, database design/implementation
-- Jonathan Yap: Javascript
-- Marcus Negron: CSS, Bootstrap
-- Calvin Pun: HTML, templates
+## Context
+Group project with 4 people for my software development class 
 
 ## Summary
 The purpose of this website is to search, retrieve, store, and display Pokemon data. Detailed information about the apps is on the home page,
